@@ -1,2 +1,3 @@
-# Sharma_Manish_C3_Project
-Project: Resturant Finder
+# Project: Resturant Finder
+
+This code base is for Executive PG Programme in Software Development Project submission
