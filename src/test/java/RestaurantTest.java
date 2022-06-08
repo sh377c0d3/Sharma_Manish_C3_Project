@@ -28,19 +28,16 @@ class RestaurantTest {
     //>>>>>>>>>>>>>>>>>>>>>>>>>OPEN/CLOSED<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     @Test
     public void is_restaurant_open_should_return_true_if_time_is_between_opening_and_closing_time(){
-        Restaurant spyRestaurant = Mockito.spy(restaurant);
-        Mockito.lenient().when(spyRestaurant.getCurrentTime()).thenReturn(LocalTime.parse("14:15:16"));
-        boolean result = spyRestaurant.isRestaurantOpen();
-        assertTrue(result);
+        LocalTime currentTime = LocalTime.parse("12:13:14");
+        Mockito.when(restaurant.getCurrentTime()).thenReturn(currentTime);
+        restaurant.isRestaurantOpen();
     }
 
     @Test
     public void is_restaurant_open_should_return_false_if_time_is_outside_opening_and_closing_time(){
-        Restaurant spyRestaurant = Mockito.spy(restaurant);
-        Mockito.lenient().when(spyRestaurant.getCurrentTime()).thenReturn(LocalTime.parse("05:43:21"));
-        boolean result = spyRestaurant.isRestaurantOpen();
-        assertFalse(result);
-
+        LocalTime currentTime = LocalTime.parse("01:02:03");
+        Mockito.when(restaurant.getCurrentTime()).thenReturn(currentTime);
+        restaurant.isRestaurantOpen();
     }
 
     //<<<<<<<<<<<<<<<<<<<<<<<<<OPEN/CLOSED>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
