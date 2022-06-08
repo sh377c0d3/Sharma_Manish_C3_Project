@@ -42,6 +42,21 @@ class RestaurantTest {
 
     //<<<<<<<<<<<<<<<<<<<<<<<<<OPEN/CLOSED>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
+    //>>>>>>>>>>>>>>>>>>>>>>>>>Total Amount<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    @Test
+    public void total_amount_of_added_items_in_cart() {
+        List<String> cart = new ArrayList<>();
+        cart.add("Sweet corn soup");
+        cart.add("Cheese Cake");
+        restaurant.addToMenu("Sweet corn soup",119);
+        restaurant.addToMenu("Vegetable lasagne", 269);
+        restaurant.addToMenu("Cheese Cake", 199);
+        Object orderValue;
+        orderValue = restaurant.calculateTotalOrderValue(cart);
+        assertEquals(orderValue, 318);
+    }
+    //<<<<<<<<<<<<<<<<<<<<<<<<<Total Amount>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
 
     //>>>>>>>>>>>>>>>>>>>>>>>>>>>MENU<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     @Test
